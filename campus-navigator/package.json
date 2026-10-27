@@ -1,0 +1,27 @@
+{
+  "name": "campus-route-navigator",
+  "version": "1.0.0",
+  "description": "Campus Route & Shortest-Path Navigator \u2014 animated Dijkstra vs A* on a real OpenStreetMap road network",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test tests/heap.test.js tests/graph.test.js tests/algorithms.test.js tests/animation.test.js",
+    "test:py": "python3 -m unittest discover -s tests -p \"test_*.py\" -v",
+    "data:sample": "python3 data/make_sample_graph.py",
+    "data:real": "python3 data/prepare_graph.py"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "ngraph.graph": "^20.1.2",
+    "ngraph.path": "^1.6.1"
+  },
+  "devDependencies": {
+    "vite": "^8.3.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

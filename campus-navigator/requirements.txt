@@ -1,0 +1,4 @@
+# Only needed for the data-preparation step (data/prepare_graph.py).
+# The web app itself needs just Node.js.
+osmnx>=2.0
+networkx>=3.0

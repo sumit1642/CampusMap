@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Route &amp; Shortest-Path Navigator</title>
+    <meta name="description" content="Animated Dijkstra vs A* shortest-path search on a real OpenStreetMap road network." />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="panel" aria-label="Controls and results">
+        <header>
+          <h1>Campus Route Navigator</h1>
+          <p class="sub">Dijkstra vs A* on a real road network</p>
+        </header>
+
+        <div id="data-banner" class="banner" hidden></div>
+
+        <section class="card">
+          <h2>1 · Pick two points</h2>
+          <p id="status" class="status" role="status" aria-live="polite">Loading map data…</p>
+          <div class="row">
+            <button id="btn-random" type="button">Random route</button>
+            <button id="btn-clear" type="button" class="ghost">Clear</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>2 · Choose the algorithm</h2>
+          <div class="seg" role="radiogroup" aria-label="Algorithm">
+            <label><input type="radio" name="algo" value="dijkstra" checked /><span>Dijkstra</span></label>
+            <label><input type="radio" name="algo" value="astar" /><span>A*</span></label>
+          </div>
+          <label class="slider">
+            Animation speed
+            <input id="speed" type="range" min="1" max="10" value="5" />
+          </label>
+          <div class="row">
+            <button id="btn-replay" type="button" disabled>Replay</button>
+            <button id="btn-race" type="button" class="accent" disabled>Race both ▶</button>
+          </div>
+          <label class="check"><input id="show-network" type="checkbox" checked /> Show road network</label>
+        </section>
+
+        <section class="card" id="results" hidden>
+          <h2>3 · Results</h2>
+          <table class="cmp">
+            <thead>
+              <tr><th></th><th><span class="dot d"></span>Dijkstra</th><th><span class="dot a"></span>A*</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Nodes visited</th><td id="d-nodes">—</td><td id="a-nodes">—</td></tr>
+              <tr><th scope="row">Route length</th><td id="d-dist">—</td><td id="a-dist">—</td></tr>
+              <tr><th scope="row">Search time</th><td id="d-time">—</td><td id="a-time">—</td></tr>
+            </tbody>
+          </table>
+          <p id="insight" class="insight"></p>
+          <p id="verify" class="verify"></p>
+          <h3>Route</h3>
+          <ol id="streets" class="streets"></ol>
+        </section>
+
+        <footer>
+          <small>Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</small>
+        </footer>
+      </aside>
+
+      <main id="map" aria-label="Interactive map"></main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
